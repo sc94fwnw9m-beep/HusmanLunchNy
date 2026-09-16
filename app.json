@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "name": "Husman Lunchrestaurang",
+    "slug": "husman-lunch-ny",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "se.husman3653.lunchny",
+      "buildNumber": "1"
+    },
+    "android": {
+      "package": "se.husman3653.lunchny",
+      "versionCode": 1
+    }
+  }
+}
