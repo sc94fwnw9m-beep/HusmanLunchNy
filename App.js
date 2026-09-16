@@ -278,21 +278,32 @@ export default function App() {
           </View>
 
           {totalItems > 0 && (
-            <TouchableOpacity
-              style={styles.orderButton}
-              onPress={() =>
-                Alert.alert(
-                  "Beställning",
-                  "Beställningen är redo att skickas."
-                )
-              }
-            >
-              <Text style={styles.orderButtonText}>
-                Skicka beställning
-              </Text>
-            </TouchableOpacity>
-          )}
-        </View>
+  <TouchableOpacity
+    style={styles.orderButton}
+    onPress={async () => {
+      const { error } = await supabase.from("orders").insert([
+        {
+          items: cart,
+          total: totalPrice,
+          message: customerMessage,
+          status: "new",
+        },
+      ]);
+
+      if (error) {
+        Alert.alert("Fel", error.message);
+        return;
+      }
+
+      Alert.alert("Tack!", "Din beställning är skickad.");
+    }}
+  >
+    <Text style={styles.orderButtonText}>
+      Skicka beställning
+    </Text>
+  </TouchableOpacity>
+)}
+  Alert.alert("Tack!", "Din beställning är skickad.");
       </ScrollView>
     </SafeAreaView>
   );
