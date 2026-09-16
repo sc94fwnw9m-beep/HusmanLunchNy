@@ -213,4 +213,4 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginTop: 7,
   },
-});
+eas.json
